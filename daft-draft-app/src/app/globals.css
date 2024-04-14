@@ -1,9 +1,15 @@
 :root {
-  --max-width: 1100px;
-  --min-width: 640px;
+  --max-width: 1200px;
+  --min-width: 600px;
+  --padding-big: 3rem;
+  --padding-typ: 1rem;
+
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+
+  --font-serif: Georgia, "Times New Roman", Times, serif;
+  --font-coding: "Fira Code", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", monospace;
 
   --foreground-rgb: 15, 15, 15;
   --background-rgb: 240, 240, 240;
@@ -25,8 +31,6 @@ body {
   font-family: var(--font-mono);
   color: rgb(var(--foreground-rgb));
   background-image: linear-gradient(to bottom right, #ddeeee, #bbddee, #bbbbee);
-  max-width: --max-width;
-  min-width: --min-width;
   overflow-x: hidden;
 }
 

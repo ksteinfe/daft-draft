@@ -1,8 +1,13 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  padding: 3rem;
+  padding: var(--padding-big) var(--padding-big) 0rem var(--padding-big);
   min-height: 100vh;
+  width: 100%;
+
+  max-width: var(--max-width);
+  min-width: var(--min-width);
+  margin: 0 auto;
 }
+

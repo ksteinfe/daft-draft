@@ -1,0 +1,15 @@
+
+.activeSegment, .inactiveSegment {
+    transition: all 0.3s ease; /* Smooth transition for all changes */
+  }
+
+.activeSegment {
+    color: black;
+}
+
+.inactiveSegment {
+    color: #333;
+    opacity: 0.25;
+}
+
+

@@ -1,0 +1,87 @@
+{
+    "segmentation": [
+        {
+            "idx": 0,
+            "txt": "Pedestrian safety in Berkeley has been a concern for the last few years especially post-pandemic when the city has seen a surge in unsafe activities.",
+            "obgs": [
+                "a"
+            ],
+            "rmk":["This sentence sets a context which is very broad, and may not contribute to diagnosing the context of the project."]
+        },
+        {
+            "idx": 1,
+            "txt": "While the city maintains relatively low violent crime and homicide rates compared to national averages, there have been increases in certain types of crimes and assaults.",
+            "obgs": [
+                "a"
+            ]
+        },
+        {
+            "idx": 2,
+            "txt": "According to Berkeley Safe Transportation Research and Education Center, 21456 out of 24871 streets in Berkeley have reported some form of unsafe activity in the last 20 years.",
+            "obgs": [
+                "a"
+            ]
+        },
+        {
+            "idx": 3,
+            "txt": "Continued emphasis on community engagement, targeted crime prevention strategies, and addressing underlying socioeconomic factors is crucial in further enhancing pedestrian safety in Berkeley.",
+            "obgs": [
+                "x",
+                "a"
+            ],
+            "rmk": [
+                "Does not directly contribute to the obligations of an abstract. Rather than diagnosing the context or proposing a problem statement, this statement suggests solutions that may be important, but are outside the scope of the proposed project."
+            ]
+        },
+        {
+            "idx": 4,
+            "txt": "User research conducted in this exploration suggests pedestrians in Berkeley do not perceptively feel safe while they walk down the city of Berkeley owing to these unsafe events that occur.",
+            "obgs": [
+                "a"
+            ]
+        },
+        {
+            "idx": 5,
+            "txt": "Based on surveys conducted by the author, these pedestrian subjects wish to navigate their way around the city feeling safe.",
+            "obgs": [
+                "a",
+                "b"
+            ]
+        },
+        {
+            "idx": 6,
+            "txt": "Hence, the first part of the project explores data collection and processing where pedestrian subjects are invited to objectively rate various points within the city based on their perception of safety, armed with synthesis of WarnMe crime data and streetlight data of the city that would give a safety-rated map of Berkeley.",
+            "obgs": [
+                "c"
+            ]
+        },
+        {
+            "idx": 7,
+            "txt": "A custom algorithm is designed to provide alternative routes optimizing distance and safety would provide the user with routes for safer navigation.",
+            "obgs": [
+                "c"
+            ]
+        },
+        {
+            "idx": 8,
+            "txt": "With that being said, the fundamental limitation of this project lies in defining \nperceived safety\n along with the quality of crowdsourced data and the inherent biases that accompany it.",
+            "obgs": [
+                "d"
+            ]
+        },
+        {
+            "idx": 9,
+            "txt": "This work focuses on an implementational approach to pedestrian safety navigation that shall help users get a better understanding of the routes they take, enforcing collective responsibility and safer experiences.",
+            "obgs": [
+                "e"
+            ]
+        },
+        {
+            "idx": 10,
+            "txt": "A large part of the future work would entail building robust data collection and processing systems, taking in the context of various social and spatial parameters to evaluate the perception of safety on a more holistic level.",
+            "obgs": [
+                "f"
+            ]
+        }
+    ]
+}

@@ -9,10 +9,19 @@ const API_URL = "https://api.zerowidth.ai/beta/process/KlLtnmz5sSSE57zY0P2e/9Lby
 const FAKE_USER_ID = "me";
 const FAKE_SESSION_ID = "fake-session-id";
 
+// Import the fake response (adjust the path as necessary)
+import fakeResponse from '../../../public/fakeSegmentationResponse.json';
+
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
+    // If returning fake data
+    if (process.env.FAKE_THE_API_CALL === 'true') {
+        console.log('Using fake API response');
+        return res.status(200).json(fakeResponse); // Directly return the fake response
+    }
+
     if (req.method === 'POST') {
         const { text } = req.body;
 
