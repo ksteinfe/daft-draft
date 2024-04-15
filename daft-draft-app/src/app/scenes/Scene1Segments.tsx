@@ -1,15 +1,15 @@
 // Corrected import statement
 import React, { useEffect, useState, RefObject } from 'react';
-import { Segmentation } from '../../types/Segment'; // Adjust the import path as necessary
-import styles from './SegmentDisplay.module.css';
+import { Segmentation } from '../../types/Segment'; 
+import styles from './Scene1Segments.module.css';
 
 
-interface SegmentDisplayProps {
+interface Scene1SegmentsProps {
   segData: Segmentation;
   activeSegIndex: number;
 }
 
-const SegmentDisplay: React.FC<SegmentDisplayProps> = ({ segData, activeSegIndex }) => {
+const Scene1Segments: React.FC<Scene1SegmentsProps> = ({ segData, activeSegIndex }) => {
   // Initialize the refs state with an array of RefObjects
   const [refs, setRefs] = useState<RefObject<HTMLDivElement>[]>([]);
 
@@ -31,7 +31,7 @@ const SegmentDisplay: React.FC<SegmentDisplayProps> = ({ segData, activeSegIndex
         const activeElementTop = activeRef.current.offsetTop;
         const activeElementHeight = activeRef.current.offsetHeight;
         const scrollContainerHeight = scrollContainer.clientHeight;
-        const scrollTop = activeElementTop + (activeElementHeight * 0.5 ) - (scrollContainerHeight * 0.9 );
+        const scrollTop = activeElementTop + (activeElementHeight * 0.5 ) - (scrollContainerHeight * 0.5 );
   
         //console.log({activeElementTop, activeElementHeight, scrollContainerHeight, scrollTop}); // Debug
   
@@ -66,4 +66,4 @@ const SegmentDisplay: React.FC<SegmentDisplayProps> = ({ segData, activeSegIndex
   );
 };
 
-export default SegmentDisplay;
+export default Scene1Segments;

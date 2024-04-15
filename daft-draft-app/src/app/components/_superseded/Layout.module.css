@@ -1,0 +1,79 @@
+.layout-container {
+  --height-top: 8rem;
+
+  display: flex;
+  flex-direction: column;
+  min-width: var(--min-width);
+  width: 100%;
+  align-items: flex-start;
+}
+
+.layout-top {
+  height: var(--height-top);
+  width: 100%;
+  padding: var(--padding-typ);
+}
+
+.layout-section {
+  display: flex;
+  width: 100%;
+}
+
+.layout-left,
+.layout-right {
+  overflow: auto;
+  font-size: 0.9rem;
+  line-height: 1.25;
+}
+
+.layout-left {
+  flex: 2;
+  /* 2 would take up 2/3 of the width 3 would takes up 3/4 of the width */
+  text-align: justify;
+  padding: var(--padding-typ) 0 0 var(--padding-typ);
+}
+
+.layout-right {
+  flex: 1;
+  text-align: justify;
+  padding: var(--padding-typ) var(--padding-typ) 0 var(--padding-typ);
+}
+
+
+.layout-center {
+  /* Remove position, top, and transform properties */
+  float: right;
+  width: 50%;
+  margin-left: 1rem;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  line-height: 1.25;
+  text-align: left;
+}
+
+.layout-center-short {
+  height: 50vh; /* Fixed height to enable scrolling */
+}
+
+.layout-center-tall {
+  height: 100%;
+  min-height: calc(100vh - var(--height-top) - var(--padding-big) - var(--padding-typ)*2);
+}
+
+
+.scrollable-div {
+  overflow-y: scroll;
+  /* or auto */
+  scrollbar-width: none;
+  /* For Firefox */
+  -ms-overflow-style: none;
+  /* For Internet Explorer 10+ */
+}
+
+.scrollable-div::-webkit-scrollbar {
+  display: none;
+  /* For WebKit browsers */
+}

@@ -11,12 +11,12 @@ interface LayoutProps {
     centerTall?: boolean;
 }
 
-const Layout: React.FC<LayoutProps> = ({ top, left, center, right, centerTall = false }) => {
-
-    const centerDiv = centerTall ?
-        <div className={`${styles['layout-center']} ${styles['layout-center-tall']}`}>{center}</div> :
+const Layout: React.FC<LayoutProps> = ({ top, left, center, right, centerTall=false }) => {
+    
+    const centerDiv = centerTall ? 
+        <div className={`${styles['layout-center']} ${styles['layout-center-tall']}`}>{center}</div> : 
         <div className={`${styles['layout-center']} ${styles['layout-center-short']} ${styles['scrollable-div']}`}>{center}</div>;
-
+    
     return (
         <div className={styles['layout-container']}>
             <div className={styles['layout-top']}>
@@ -28,8 +28,6 @@ const Layout: React.FC<LayoutProps> = ({ top, left, center, right, centerTall = 
                     {left}
                 </div>
                 <div className={styles['layout-right']}>
-                    <div className={styles['layout-center-spacer']}></div>
-                    <div className={styles['layout-center-ghost']}>{'\u00A0'}</div>
                     {right}
                 </div>
             </div>

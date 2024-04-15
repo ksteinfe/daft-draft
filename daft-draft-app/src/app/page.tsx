@@ -7,8 +7,7 @@ import styles from './page.module.css';
 import { Segmentation } from '../types/Segment'; // Adjust the import path as necessary
 
 import Layout from './components/Layout';
-import SegmentDisplay from './components/SegmentDisplay';
-
+import Scene1 from './scenes/Scene1';
 
 export default function Home() {
   // State and event handling
@@ -18,7 +17,11 @@ export default function Home() {
   const [segmentationIsLoading, setSegmentationIsLoading] = useState<boolean>(false);
   const [activeSegIndex, setActiveSegIndex] = useState<number>(-1);
 
+  // scene number is -1 if segmentation is not ready; otherwise, it is the index of the current segment
+  const [sceneNumber, setSceneNumber] = useState<number>(-1);
 
+
+  // Keyboard event handling
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (!segmentationReady || segmentationIsLoading || !segData) return;
@@ -44,7 +47,7 @@ export default function Home() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [segmentationReady, segmentationIsLoading, segData]);
 
-
+  // Inital Text Form Submit
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSegmentationIsLoading(true);
@@ -60,6 +63,7 @@ export default function Home() {
       const jsonResponse = await response.json();
       setSegData(jsonResponse.segmentation);
       setSegmentationReady(true);
+      setSceneNumber(0);
     } else {
       alert('Error fetching segmentation');
     }
@@ -72,12 +76,11 @@ export default function Home() {
       return <Loading />;
     }
     if (!segmentationReady) {
-
       return (
         <Layout
           top={null}
           left="some instructions here..."
-          center={<InitialTextEntry givenText={givenText} setGivenText={setGivenText} handleSubmit={handleSubmit} /> }
+          center={<InitialTextEntry givenText={givenText} setGivenText={setGivenText} handleSubmit={handleSubmit} />}
           right={
             <button type="submit" form="initTextForm">Submit</button>
           }
@@ -85,22 +88,19 @@ export default function Home() {
         />
       );
     }
-    if (!segData) {
-      return "Something has gone wrong. I expected to find a segmentation response from the server.";
+    if (!segData || sceneNumber < 0) {
+      return "Something has gone wrong. I expected to find a segmentation response from the server, or for the scene to be set";
     }
 
-    const topContent = <div>TOP. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at magna erat. In posuere, mauris sed sodales laoreet, dolor tellus vulputate lorem, a ullamcorper justo nibh in sapien. Aenean ornare, velit quis gravida pellentesque, quam diam lobortis orci, vel luctus quam purus eu nunc. Morbi accumsan placerat nulla non mollis. Aenean dolor augue, sodales nec tincidunt id, tempus sit amet arcu. Ut urna augue, fringilla nec mollis nec, fringilla a est. Mauris vitae ex placerat, scelerisque velit id, congue nunc. Donec erat tortor, iaculis nec finibus dignissim, rhoncus id risus.</div>;
-    const leftContent = <div>LEFT. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at magna erat. In posuere, mauris sed sodales laoreet, dolor tellus vulputate lorem, a ullamcorper justo nibh in sapien. Aenean ornare, velit quis gravida pellentesque, quam diam lobortis orci, vel luctus quam purus eu nunc. Morbi accumsan placerat nulla non mollis. Aenean dolor augue, sodales nec tincidunt id, tempus sit amet arcu. Ut urna augue, fringilla nec mollis nec, fringilla a est. Mauris vitae ex placerat, scelerisque velit id, congue nunc. Donec erat tortor, iaculis nec finibus dignissim, rhoncus id risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at magna erat. In posuere, mauris sed sodales laoreet, dolor tellus vulputate lorem, a ullamcorper justo nibh in sapien. Aenean ornare, velit quis gravida pellentesque, quam diam lobortis orci, vel luctus quam purus eu nunc. Morbi accumsan placerat nulla non mollis. Aenean dolor augue, sodales nec tincidunt id, tempus sit amet arcu. Ut urna augue, fringilla nec mollis nec, fringilla a est. Mauris vitae ex placerat, scelerisque velit id, congue nunc. Donec erat tortor, iaculis nec finibus dignissim, rhoncus id risus.</div>;
-    const rightContent = <div>RIGHT. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at magna erat. In posuere, mauris sed sodales laoreet, dolor tellus vulputate lorem, a ullamcorper justo nibh in sapien. Aenean ornare, velit quis gravida pellentesque, quam diam lobortis orci, vel luctus quam purus eu nunc. Morbi accumsan placerat nulla non mollis. Aenean dolor augue, sodales nec tincidunt id, tempus sit amet arcu. Ut urna augue, fringilla nec mollis nec, fringilla a est. Mauris vitae ex placerat, scelerisque velit id, congue nunc. Donec erat tortor, iaculis nec finibus dignissim, rhoncus id risus.</div>;
-    return (
-      <Layout
-        top={topContent}
-        left={leftContent}
-        center={<SegmentDisplay segData={segData} activeSegIndex={activeSegIndex} />}
-        right={rightContent}
-        centerTall={false}
-      />
-    );
+    switch (sceneNumber) {
+      case 0:
+        return Scene1({ segData, activeSegIndex });
+      case 1:
+        break;
+      
+      default:
+        return "Something has gone wrong. Strange scene number encountered."
+    }
 
   }
 
