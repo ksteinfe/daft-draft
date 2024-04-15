@@ -19,7 +19,7 @@ const Scene1Segments: React.FC<Scene1SegmentsProps> = ({ segData, activeSegIndex
   }, [segData]);
 
   useEffect(() => {
-    console.log(activeSegIndex); // Debug
+    //console.log(activeSegIndex); // Debug
     const targetIndex = activeSegIndex === -1 ? 0 : activeSegIndex;
     const activeRef = refs[targetIndex];
     if (activeRef?.current?.parentNode) {

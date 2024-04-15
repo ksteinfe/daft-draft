@@ -7,6 +7,7 @@ import styles from './page.module.css';
 import { Segmentation } from '../types/Segment'; // Adjust the import path as necessary
 
 import Layout from './components/Layout';
+import Scene0 from './scenes/Scene0';
 import Scene1 from './scenes/Scene1';
 
 export default function Home() {
@@ -15,10 +16,11 @@ export default function Home() {
   const [segData, setSegData] = useState<Segmentation | null>(null);
   const [segmentationReady, setSegmentationReady] = useState<boolean>(false);
   const [segmentationIsLoading, setSegmentationIsLoading] = useState<boolean>(false);
-  const [activeSegIndex, setActiveSegIndex] = useState<number>(-1);
+  const [activeSegIndex, setActiveSegIndex] = useState<number>(0);
 
   // scene number is -1 if segmentation is not ready; otherwise, it is the index of the current segment
   const [sceneNumber, setSceneNumber] = useState<number>(-1);
+  const maxScene = 1;
 
 
   // Keyboard event handling
@@ -28,15 +30,23 @@ export default function Home() {
 
       switch (event.key) {
         case 'ArrowUp':
-        case 'ArrowLeft':
           // Move to the previous segment or loop back to the last segment if at the start
-          setActiveSegIndex((prevIndex) => prevIndex === -1 ? segData.length - 1 : Math.max(prevIndex - 1, -1));
+          setActiveSegIndex((prevIndex) => prevIndex === 0 ? segData.length - 1 : Math.max(prevIndex - 1, 0));
           break;
         case 'ArrowDown':
-        case 'ArrowRight':
           // Move to the next segment or loop back to -1 if at the last segment
-          setActiveSegIndex((prevIndex) => prevIndex === segData.length - 1 ? -1 : Math.min(prevIndex + 1, segData.length - 1));
+          setActiveSegIndex((prevIndex) => prevIndex === segData.length - 1 ? 0 : Math.min(prevIndex + 1, segData.length - 1));
           break;
+
+          
+        case 'ArrowLeft':
+          // Move to the previous scene or loop back to the last scene if at the start
+          setSceneNumber((prevNum) => prevNum === 0 ? maxScene : Math.max(prevNum - 1, 0));
+          break;
+        case 'ArrowRight':
+          // Move to the next scene or loop back to the first scene if at the end
+          setSceneNumber((prevNum) => prevNum === maxScene ? 0 : Math.min(prevNum + 1, maxScene));
+          break;          
         default:
           break;
       }
@@ -84,7 +94,7 @@ export default function Home() {
           right={
             <button type="submit" form="initTextForm">Submit</button>
           }
-          centerTall={true}
+          style={'a'}
         />
       );
     }
@@ -94,12 +104,12 @@ export default function Home() {
 
     switch (sceneNumber) {
       case 0:
-        return Scene1({ segData, activeSegIndex });
+        return Scene0({ segData });
       case 1:
-        break;
+        return Scene1({ segData, activeSegIndex });
       
       default:
-        return "Something has gone wrong. Strange scene number encountered."
+        return "Something has gone wrong. Strange scene number encountered: " + sceneNumber;
     }
 
   }

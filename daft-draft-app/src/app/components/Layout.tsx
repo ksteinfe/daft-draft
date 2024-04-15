@@ -8,33 +8,57 @@ interface LayoutProps {
     left: ReactNode;
     center: ReactNode;
     right: ReactNode;
-    centerTall?: boolean;
+    style: string;
 }
 
-const Layout: React.FC<LayoutProps> = ({ top, left, center, right, centerTall = false }) => {
+const Layout: React.FC<LayoutProps> = ({ top, left, center, right, style }) => {
 
-    const centerDiv = centerTall ?
-        <div className={`${styles['layout-center']} ${styles['layout-center-tall']}`}>{center}</div> :
-        <div className={`${styles['layout-center']} ${styles['layout-center-short']} ${styles['scrollable-div']}`}>{center}</div>;
 
-    return (
-        <div className={styles['layout-container']}>
-            <div className={styles['layout-top']}>
-                {top}
-            </div>
-            <div className={styles['layout-section']}>
-                <div className={styles['layout-left']}>
-                    {centerDiv}
-                    {left}
+    switch (style) {
+        case "a":
+            return (
+                <div className={styles['layout-container']}>
+                    <div className={styles['layout-top']}>
+                        {top}
+                    </div>
+                    <div className={styles['layout-section']}>
+                        <div className={styles['layout-a-left']}>
+                        <div className={`${styles['layout-a-center']}`}>{center}</div>
+                            {left}
+                        </div>
+                        <div className={styles['layout-a-right']}>
+                            <div className={styles['layout-center-spacer']}></div>
+                            <div className={styles['layout-center-ghost']}>{'\u00A0'}</div>
+                            {right}
+                        </div>
+                    </div>
                 </div>
-                <div className={styles['layout-right']}>
-                    <div className={styles['layout-center-spacer']}></div>
-                    <div className={styles['layout-center-ghost']}>{'\u00A0'}</div>
-                    {right}
+            );
+        case "b":
+            return (
+                <div className={styles['layout-container']}>
+                    <div className={styles['layout-top']}>
+                        {top}
+                    </div>
+                    <div className={styles['layout-section']}>
+                        <div className={styles['layout-b-left']}>
+                        <div className={`${styles['layout-b-center']} ${styles['scrollable-div']}`}>{center}</div>
+                            {left}
+                        </div>
+                        <div className={styles['layout-b-right']}>
+                            <div className={styles['layout-center-spacer']}></div>
+                            <div className={styles['layout-center-ghost']}>{'\u00A0'}</div>
+                            {right}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    );
+            );
+        
+        default:
+            return "Something has gone wrong. Strange layout style encountered : "  + style;
+        }
+
+
 };
 
 export default Layout;

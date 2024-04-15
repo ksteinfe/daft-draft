@@ -17,6 +17,7 @@
   justify-content: flex-end;    /* Aligns children (text) horizontally to the end */
   align-items: flex-end;        /* Aligns children vertically to the end */
   text-align: right;
+  font-size: 1.0rem;
 }
 .layout-section {
   position: absolute;
@@ -24,45 +25,58 @@
   width: 100%;
 }
 
-.layout-left,
-.layout-right {
+.layout-a-left,
+.layout-a-right,
+.layout-b-left,
+.layout-b-right {
   position: absolute;
   overflow: auto;
-  font-size: 0.9rem;
   line-height: 1.25;
   text-align: justify;
+  color: #333;
 }
-.layout-left {
+.layout-a-left,
+.layout-b-left {
   top: var(--height-top);
   width: 66%;
+  font-size: 0.9rem;
 }
-.layout-right {
+.layout-a-right,
+.layout-b-right {
   left: 33%;
   width: 66%;
+  font-size: 0.8rem;
   min-height: var(--height-all);
 }
 
 
-.layout-center {
+.layout-a-center,
+.layout-b-center {
   /* Remove position, top, and transform properties */
   float: right;
-  width: 50%;
   margin-left: var(--padding-typ);
   margin-bottom: var(--padding-typ);
-  padding: 0;
   box-sizing: border-box;
 
   font-family: var(--font-serif);
-  font-size: 1.1rem;
-  line-height: 1.25;
   text-align: left;
+  user-select: none;
+  background-color: hsla(0, 0%, 100%, 0.50);
+  padding: var(--padding-typ);
 }
 
-.layout-center-short { height: 50vh;}
-.layout-center-tall {
-  height: 100%;
-  min-height: calc(100vh - var(--height-top) - var(--padding-big) - var(--padding-typ)*2);
+.layout-a-center {
+  width: 100%;
+  font-size: 0.7rem;
+  line-height: 1.25;
 }
+.layout-b-center { 
+  width: 50%;
+  height: 50vh;
+  font-size: 1.0rem;
+  line-height: 1.25;      
+}
+
 .layout-center-spacer {
   float:left;
   clear:left;
@@ -73,7 +87,7 @@
   float:left;
   clear:left;
   width: calc( 50% + var(--padding-typ) );
-  min-height: calc(100vh - var(--height-top) - var(--padding-big) - var(--padding-typ)*2);
+  min-height: calc(100vh - var(--height-top) - var(--padding-big) );
   z-index: -1;
 }
 
@@ -86,9 +100,11 @@
   /* For Firefox */
   -ms-overflow-style: none;
   /* For Internet Explorer 10+ */
+  
 }
 
 .scrollable-div::-webkit-scrollbar {
   display: none;
   /* For WebKit browsers */
 }
+
