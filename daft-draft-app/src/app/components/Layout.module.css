@@ -8,6 +8,11 @@
   position: relative; /* Necessary for absolute positioning of children */
 }
 
+.layout-container p {
+  margin-bottom: calc( var(--padding-typ) / 2);
+}
+
+
 .layout-top {
   height: var(--height-top);
   width: 33%;
@@ -45,7 +50,7 @@
 .layout-b-right {
   left: 33%;
   width: 66%;
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   min-height: var(--height-all);
 }
 

@@ -1,6 +1,6 @@
 // Corrected import statement
 import React, { useEffect, useState, RefObject } from 'react';
-import { Segmentation } from '../../types/Segment'; 
+import { Segmentation } from '../../types/Segmentation'; 
 import styles from './Scene1Segments.module.css';
 
 

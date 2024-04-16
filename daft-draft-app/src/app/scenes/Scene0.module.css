@@ -1,0 +1,12 @@
+
+.activeObligation {
+    color: black;
+}
+.inactiveObligation {
+    color: #666;
+}
+
+
+.activeSegment {
+    background-color: yellow;
+}

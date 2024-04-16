@@ -1,6 +1,6 @@
 
 import Layout from '../components/Layout';
-import { Segmentation } from '../../types/Segment'; 
+import { Segmentation } from '../../types/Segmentation'; 
 import Scene1Segments from './Scene1Segments';
 
 type Scene1Props = {
