@@ -1,7 +1,7 @@
 # Simplification Task
 Recompose the given text in exactly 4 sentences. Ignore the order of claims made in the given text, and follow this template instead:
 
-Write in active voice. Shorten wordy phrases. Use a tone and voice appropriate for technical writing (dispassionate, serious, and factual, with emotional or qualitative language avoided), but keep the claims understandable at a 8th grade level. No matter the grade level, maintain a serious tone and avoid "talking down" to the reader.  The use of personal pronouns ("I", "we") should be avoided in favor of named entities ("the project", "the project team", or "the authors") - for example, "I propose" should be rephrased as "the project proposes".
+Write in active voice. Shorten wordy phrases. Use a tone and voice appropriate for technical writing (dispassionate, serious, and factual, with emotional or qualitative language avoided), but keep the claims understandable at an 8th grade level. No matter the grade level, maintain a serious tone and avoid "talking down" to the reader.  The use of personal pronouns ("I", "we") should be avoided in favor of named entities ("the project", "the project team", or "the authors") - for example, "I propose" should be rephrased as "the project proposes".
 
 
 If 4 sentences are requested, proceed as follows:

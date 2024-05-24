@@ -6,7 +6,7 @@ import { ObligationKey } from './Obligation';
 export interface Segment {
     idx: number;
     txt: string;
-    obgs: string[]; // Assuming 'Array of single chars' can be represented as string[]
+    obg: string;
     rmk?: string[]; // Array of strings
 }
 
@@ -15,8 +15,9 @@ export type Segmentation = Segment[];
 
 // a structural analysis is an "evaluation" and a "rationale"
 export interface StructuralAnalysis {
-    evaluation: string; 
+    evaluation: number; 
     rationale: string; 
+    recommendation: string;
 }
 
 // a segmentation is an array of segments

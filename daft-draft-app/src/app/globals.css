@@ -1,6 +1,6 @@
 :root {
   --max-width: 1000px;
-  --min-width: 600px;
+  --min-width: 700px;
   --padding-big: 3rem;
   --padding-typ: 1rem;
 
@@ -16,6 +16,43 @@
 
   --callout-rgb: 238, 240, 241;
   --callout-border-rgb: 172, 175, 176;
+
+
+  --obg-a-vdark: #522f25;
+  --obg-b-vdark: #45361a;
+  --obg-c-vdark: #263e25;
+  --obg-d-vdark: #003f42;
+  --obg-e-vdark: #243954;
+  --obg-f-vdark: #4a2f48;
+  
+  --obg-a-dark: #8a503e;
+  --obg-b-dark: #745c2c;
+  --obg-c-dark: #40693e;
+  --obg-d-dark: #006a6f;
+  --obg-e-dark: #3d618f;
+  --obg-f-dark: #7b507d;
+    
+  --obg-a-light: #faa991;
+  --obg-b-light: #d7ba73;
+  --obg-c-light: #92cb8f;
+  --obg-d-light: #23d0d9;
+  --obg-e-light: #8fc0ff;
+  --obg-f-light: #ddabec;
+
+  --obg-a-vlight: #fccaba;
+  --obg-b-vlight: #e5d3a6;
+  --obg-c-vlight: #bad3b8;
+  --obg-d-vlight: #81e4e9;
+  --obg-e-vlight: #b8d7ff;
+  --obg-f-vlight: #e8caf4;
+
+  --obg-a-vvlight: #feeae3;
+  --obg-b-vvlight: #f4eddb;
+  --obg-c-vvlight: #e3f2e2;
+  --obg-d-vvlight: #cff5f7;
+  --obg-e-vvlight: #e2efff;
+  --obg-f-vvlight: #f5eafb;
+
 }
 
 * {
